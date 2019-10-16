@@ -13,16 +13,16 @@ import javax.servlet.ServletRegistration;
  * 可用来代替 web.xml 配置 web 应用
  * spring boot不同，不将其与servlet容器的连接交给开发者，而是使用spring配置引导自己和内嵌的servlet容器
  */
-public class MyWebApplicationInitializer implements WebApplicationInitializer {
-
-    @Override
-    public void onStartup(ServletContext servletContext) {
-        // 可在此配置 spring context，dispatcherServlet；
-        AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-        context.register(RootConfig.class);
-        DispatcherServlet dispatcherServlet = new DispatcherServlet(context);
-        ServletRegistration.Dynamic registration = servletContext.addServlet("app", dispatcherServlet);
-        registration.setLoadOnStartup(1);
-        registration.addMapping("/");
-    }
-}
+//public class MyWebApplicationInitializer implements WebApplicationInitializer {
+//
+//    @Override
+//    public void onStartup(ServletContext servletContext) {
+//        // 可在此配置 spring context，dispatcherServlet；
+//        AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+//        context.register(RootConfig.class);
+//        DispatcherServlet dispatcherServlet = new DispatcherServlet(context);
+//        ServletRegistration.Dynamic registration = servletContext.addServlet("app", dispatcherServlet);
+//        registration.setLoadOnStartup(1);
+//        registration.addMapping("/");
+//    }
+//}
