@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="xml-config:war">
+    <output-path>$PROJECT_DIR$/xml-config/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>xml-config</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="xml-config.war">
+      <element id="artifact" artifact-name="xml-config:war exploded" />
+    </root>
+  </artifact>
+</component>

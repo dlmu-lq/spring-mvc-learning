@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/spring-mvc-learning.iml" filepath="$PROJECT_DIR$/spring-mvc-learning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-config/java-config.iml" filepath="$PROJECT_DIR$/java-config/java-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xml-config/xml-config.iml" filepath="$PROJECT_DIR$/xml-config/xml-config.iml" />
     </modules>
   </component>
 </project>

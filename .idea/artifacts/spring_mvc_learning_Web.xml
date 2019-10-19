@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="spring-mvc-learning:Web">
-    <output-path>$PROJECT_DIR$/target/</output-path>
-    <root id="archive" name="spring-mvc-learning_Web.war">
-      <element id="artifact" artifact-name="spring-mvc-learning:Web exploded" />
-    </root>
-  </artifact>
-</component>
