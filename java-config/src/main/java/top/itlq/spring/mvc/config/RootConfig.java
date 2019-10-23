@@ -13,7 +13,9 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.validation.Validator;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 import top.itlq.spring.mvc.config.jackson.InstantDeserializer;
 import top.itlq.spring.mvc.config.jackson.InstantSerializer;
 import top.itlq.spring.mvc.converters.MyConverter;
@@ -28,14 +30,6 @@ import java.util.List;
 @EnableWebMvc
 @ComponentScan(basePackages = "top.itlq.spring.mvc")
 public class RootConfig implements WebMvcConfigurer {
-    /**
-     * 静态资源处理
-     * @param configurer
-     */
-    @Override
-    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-        configurer.enable();
-    }
 
     /**
      * 转换器
@@ -56,11 +50,33 @@ public class RootConfig implements WebMvcConfigurer {
         return null;
     }
 
+    /**
+     * HttpMessageConverter
+     * @param converters
+     */
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters){
         converters.add(new MappingJackson2HttpMessageConverter(objectMapper()));
     }
 
+    /**
+     * View Resolver,返回json内容时，自动使用改默认view
+     * @param registry
+     */
+    @Override
+    public void configureViewResolvers(ViewResolverRegistry registry){
+        registry.enableContentNegotiation(new MappingJackson2JsonView(objectMapper()));
+    }
+
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
+    }
+
+    /**
+     * 一个测试bean
+     * @return
+     */
     @Bean
     public MyConverter myConverter(){
         return new MyConverter();
@@ -76,4 +92,5 @@ public class RootConfig implements WebMvcConfigurer {
                 .build();
     }
     //endregion
+
 }

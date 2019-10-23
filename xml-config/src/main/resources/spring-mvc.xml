@@ -18,6 +18,16 @@
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
+    
+    <mvc:view-resolvers>
+        <mvc:content-negotiation>
+            <mvc:default-views>
+                <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"/>
+            </mvc:default-views>
+        </mvc:content-negotiation>
+    </mvc:view-resolvers>
+
+    <mvc:default-servlet-handler/>
 
     <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
         <property name="converters">
